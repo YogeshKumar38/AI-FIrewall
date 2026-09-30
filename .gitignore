@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Model files
+models/*
+!models/deberta_semantic/
+!models/deberta_semantic/*
+
+# Generated data
+data/processed/
+data/augmented/
+data/embeddings/
+outputs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+important_kaggle_cells.txt
+kaggle_notebook_code.txt

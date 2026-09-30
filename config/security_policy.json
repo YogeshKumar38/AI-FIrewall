@@ -1,0 +1,45 @@
+{
+    "project": {
+        "name": "AI Firewall",
+        "version": "1.0.0",
+        "mode": "production"
+    },
+    "semantic_model": {
+        "path": "models/deberta_semantic",
+        "type": "deberta-v3-base",
+        "max_length": 256,
+        "threshold": 0.05,
+        "labels": {
+            "0": "BENIGN",
+            "1": "MALICIOUS"
+        }
+    },
+    "risk_policy": {
+        "levels": [
+            "LOW",
+            "MEDIUM",
+            "HIGH",
+            "CRITICAL"
+        ],
+        "actions": {
+            "LOW": "ALLOW",
+            "MEDIUM": "REVIEW",
+            "HIGH": "BLOCK",
+            "CRITICAL": "BLOCK"
+        }
+    },
+    "pipeline": {
+        "preprocessing": true,
+        "security_rules": true,
+        "semantic_detection": true,
+        "context_analysis": true,
+        "semantic_retrieval": true,
+        "risk_engine": true,
+        "policy_engine": true,
+        "llm_gateway": true
+    },
+    "llm_boundary": {
+        "firewall_before_llm": true,
+        "blocked_prompts_reach_llm": false
+    }
+}

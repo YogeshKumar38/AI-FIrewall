@@ -1,0 +1,2 @@
+models/deberta_semantic/model.safetensors filter=lfs diff=lfs merge=lfs -text
+models/deberta_semantic/tokenizer.json filter=lfs diff=lfs merge=lfs -text

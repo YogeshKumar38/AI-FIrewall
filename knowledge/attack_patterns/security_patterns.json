@@ -1,0 +1,85 @@
+{
+    "version": "2.0",
+    "description": "Security pattern knowledge base for the AI Firewall rule engine.",
+    "categories": {
+        "prompt_injection": {
+            "severity": "HIGH",
+            "patterns": [
+                "\\bignore\\s+(?:all\\s+)?(?:previous|prior|above|earlier)\\s+instructions\\b",
+                "\\bdisregard\\s+(?:all\\s+)?(?:previous|prior|above|earlier)\\s+instructions\\b",
+                "\\bforget\\s+(?:your\\s+)?(?:previous|prior|existing)\\s+instructions\\b",
+                "\\bignore\\s+the\\s+system\\s+prompt\\b",
+                "\\boverride\\s+(?:the\\s+)?system\\s+(?:prompt|instructions)\\b",
+                "\\bdo\\s+not\\s+follow\\s+(?:the\\s+)?(?:system|previous)\\s+instructions\\b",
+                "\\bfollow\\s+my\\s+instructions\\s+instead\\b"
+            ]
+        },
+        "system_prompt_extraction": {
+            "severity": "CRITICAL",
+            "patterns": [
+                "\\b(?:reveal|show|print|display|provide|tell)\\b.{0,100}\\b(?:system\\s+prompt|hidden\\s+instructions)\\b",
+                "\\bwhat\\s+(?:is|are)\\s+your\\s+(?:system\\s+prompt|hidden\\s+instructions)\\b",
+                "\\brepeat\\s+your\\s+(?:system\\s+prompt|instructions|rules)\\b",
+                "\\boutput\\s+(?:your\\s+)?(?:system\\s+prompt|hidden\\s+instructions)\\b",
+                "\\bdisclose\\b.{0,100}\\b(?:system\\s+prompt|hidden\\s+instructions)\\b"
+            ]
+        },
+        "security_bypass": {
+            "severity": "HIGH",
+            "patterns": [
+                "\\bdisable\\s+(?:the\\s+)?(?:application|system|security)\\s+(?:security\\s+)?checks\\b",
+                "\\bbypass\\s+(?:authentication|authorization|access\\s+control|security)\\b",
+                "\\bdisable\\s+(?:security|safety)\\s+(?:controls|mechanisms|checks)\\b",
+                "\\bevade\\s+(?:security|detection|monitoring)\\b",
+                "\\bdefeat\\s+(?:security|access\\s+control)\\b",
+                "\\bcircumvent\\s+(?:security|authentication|authorization|access\\s+control)\\b"
+            ]
+        },
+        "credential_secret_extraction": {
+            "severity": "CRITICAL",
+            "patterns": [
+                "\\b(?:steal|extract|dump|retrieve|obtain)\\b.{0,100}\\b(?:passwords?|credentials?|tokens?|api\\s+keys?|secret\\s+keys?)\\b",
+                "\\bextract\\s+(?:the\\s+)?(?:api\\s+key|access\\s+token|password|credential)\\b",
+                "\\bprovide\\s+(?:credentials?|passwords?|tokens?|api\\s+keys?)\\b"
+            ]
+        },
+        "data_exfiltration": {
+            "severity": "HIGH",
+            "patterns": [
+                "\\b(?:steal|exfiltrate|leak|dump|send)\\b.{0,100}\\b(?:private|confidential|sensitive)\\s+(?:data|information|files?)\\b",
+                "\\bsteal\\s+(?:private|confidential|sensitive)\\s+(?:application\\s+)?data\\b",
+                "\\bexfiltrate\\b.{0,100}\\bdata\\b",
+                "\\bleak\\b.{0,100}\\b(?:database|records?|customer\\s+data)\\b"
+            ]
+        },
+        "instruction_hijacking": {
+            "severity": "HIGH",
+            "patterns": [
+                "\\byou\\s+are\\s+now\\b",
+                "\\bact\\s+as\\s+(?:an?\\s+)?(?:unrestricted|unfiltered|evil)\\b",
+                "\\bpretend\\s+(?:you\\s+are|to\\s+be)\\b",
+                "\\bdeveloper\\s+mode\\b",
+                "\\bdan\\s+mode\\b",
+                "\\bunrestricted\\s+mode\\b",
+                "\\bwithout\\s+(?:any\\s+)?(?:restrictions|safety|guardrails)\\b"
+            ]
+        },
+        "obfuscation": {
+            "severity": "MEDIUM",
+            "patterns": [
+                "\\b(?:decode|decipher)\\b.{0,80}\\b(?:base64|hex|encoded)\\b",
+                "\\bbase64\\b.{0,80}\\b(?:decode|execute|run)\\b",
+                "\\bhex(?:adecimal)?\\b.{0,80}\\b(?:decode|execute|run)\\b"
+            ]
+        },
+        "harmful_execution": {
+            "severity": "HIGH",
+            "patterns": [
+                "\\bgive\\s+me\\s+(?:steps|instructions)\\s+to\\b",
+                "\\bshow\\s+me\\s+how\\s+to\\b.{0,100}\\b(?:bypass|exploit|steal|evade)\\b",
+                "\\bprovide\\s+(?:a\\s+)?method\\s+to\\b.{0,100}\\b(?:bypass|exploit|steal|evade)\\b",
+                "\\bhow\\s+(?:can|do)\\s+i\\s+(?:bypass|exploit|steal|evade)\\b"
+            ]
+        }
+    }
+}
